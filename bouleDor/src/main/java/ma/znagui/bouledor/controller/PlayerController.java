@@ -6,14 +6,15 @@ import ma.znagui.bouledor.dto.auth.PlayerCreateDTO;
 import ma.znagui.bouledor.dto.player.PlayerResponseDTO;
 import ma.znagui.bouledor.service.PlayerService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.method.P;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/players")
 @AllArgsConstructor
+@CrossOrigin("http://localhost:4200")
 public class PlayerController {
     private final PlayerService service;
 
@@ -21,5 +22,10 @@ public class PlayerController {
     @PostMapping
     public ResponseEntity<PlayerResponseDTO> createPlayer(@Valid @RequestBody PlayerCreateDTO dto){
         return ResponseEntity.ok(service.createPlayer(dto));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<PlayerResponseDTO>> getAllPlayers(){
+        return ResponseEntity.ok(service.getAllPlayers());
     }
 }

@@ -14,9 +14,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/Clubs")
+@RequestMapping("/clubs")
 @AllArgsConstructor
+@CrossOrigin("http://localhost:4200")
 public class ClubController {
 
     private final ClubService clubService;
@@ -27,7 +30,7 @@ public class ClubController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<ClubResponseDTO>> getAllProducts(
+    public ResponseEntity<Page<ClubResponseDTO>> getAllClubs(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "5") int size,
             @RequestParam(defaultValue = "id") String sortBy,
@@ -52,6 +55,12 @@ public class ClubController {
     public ResponseEntity<ClubResponseDTO> updateClub(@CheckExistion(entityC = Club.class) @PathVariable Long id, @Valid @RequestBody ClubRequestDTO dto){
         return ResponseEntity.ok(clubService.updateClub(id,dto));
     }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<ClubResponseDTO>> getAllClub2(){
+        return ResponseEntity.ok(clubService.getAllClubs2());
+    }
+
 
 
 

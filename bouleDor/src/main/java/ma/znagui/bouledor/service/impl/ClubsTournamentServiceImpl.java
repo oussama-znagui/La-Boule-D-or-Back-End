@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 @AllArgsConstructor
 @Service
@@ -91,6 +92,11 @@ public class ClubsTournamentServiceImpl implements ClubsTournamentService {
 
     public ClubsTournament getClubsTournamentEntityById(Long id) {
         return clubsTournamentRepository.findById(id).orElseThrow(() -> new ResourceNotFoundExeption("Club Tournament",id));
+    }
+
+    @Override
+    public List<ClubsTournamentResponseDTO> getAllClubsTournaments() {
+        return clubsTournamentRepository.findAll().stream().map(clubsTournamentMapper::clubsTournamentToResponseDTO).toList();
     }
 
 

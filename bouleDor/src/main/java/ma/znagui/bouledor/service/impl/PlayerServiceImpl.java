@@ -49,7 +49,12 @@ public class PlayerServiceImpl implements PlayerService {
 
     @Override
     public List<PlayerResponseDTO> getAllPlayers() {
-        return List.of();
+
+//        Player player = playerRepository.findById(1L).orElseThrow(() -> new ResourceNotFoundExeption("Joueur",1L));
+//
+//        System.out.println(player.getTournaments());
+
+        return playerRepository.findAll().stream().map(playerMaper::playerToResponseDTO).toList();
     }
 
     @Override

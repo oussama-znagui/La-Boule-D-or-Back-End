@@ -1,6 +1,7 @@
 package ma.znagui.bouledor.mapper;
 
 import ma.znagui.bouledor.dto.city.CityEmbdedDTO;
+import ma.znagui.bouledor.dto.city.CityResponseDTO;
 import ma.znagui.bouledor.entity.City;
 import org.mapstruct.Mapper;
 
@@ -8,4 +9,5 @@ import org.mapstruct.Mapper;
 public interface CityMapper {
 
     CityEmbdedDTO cityToEmbdedDTO(City city);
+    CityResponseDTO cityToResponseDTO(City city);
 }

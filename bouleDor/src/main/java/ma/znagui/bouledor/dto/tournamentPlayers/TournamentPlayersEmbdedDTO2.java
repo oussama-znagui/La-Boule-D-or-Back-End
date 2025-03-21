@@ -5,9 +5,10 @@ import lombok.Getter;
 import ma.znagui.bouledor.dto.player.PlayerEmbdedDTO;
 import ma.znagui.bouledor.dto.tournament.TournamentEmbdedDTO;
 
+
 @Getter
 @AllArgsConstructor
-public class TournamentPlayersEmbdedDTO {
-    private PlayerEmbdedDTO player;
+public class TournamentPlayersEmbdedDTO2 {
+    private TournamentEmbdedDTO tournament;
     private String note;
 }

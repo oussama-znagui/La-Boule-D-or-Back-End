@@ -17,6 +17,9 @@ import ma.znagui.bouledor.service.TournamentPlayersService;
 import ma.znagui.bouledor.service.TournamentService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @AllArgsConstructor
 @Service
 public class TournamentPlayersServiceImpl  implements TournamentPlayersService {
@@ -56,6 +59,8 @@ public class TournamentPlayersServiceImpl  implements TournamentPlayersService {
 
             }
 
+        }else {
+
         }
 
         if (tournament.getPlayers().size() == tournament.getNumberOfPlayers()){
@@ -68,5 +73,13 @@ public class TournamentPlayersServiceImpl  implements TournamentPlayersService {
 
 
         return tournamentPlayersMapper.tournementPlayersToResponseDTO(tournamentPlayers);
+    }
+
+    @Override
+    public List<TournamentPlayersResponseDTO> addplayersToTournament(List<TournamentPlayersRequestDTO> dtos) {
+        System.out.println("allooooooooooooooooooo");
+        List<TournamentPlayersResponseDTO> resp = new ArrayList<TournamentPlayersResponseDTO>();
+        dtos.forEach((dto -> resp.add(addPlayerToTournament(dto))));
+        return resp;
     }
 }

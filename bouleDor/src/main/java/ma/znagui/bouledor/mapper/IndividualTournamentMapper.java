@@ -14,4 +14,5 @@ public interface IndividualTournamentMapper {
 
 //    @Mapping(target = "")
     individualTournamentResponseDTO poolIndividualTournamentToResponseDTO(IndividualTournament poolIndividualTournament);
+
 }

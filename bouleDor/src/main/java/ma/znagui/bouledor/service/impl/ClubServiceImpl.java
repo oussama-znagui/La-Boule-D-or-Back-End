@@ -13,6 +13,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class ClubServiceImpl implements ClubService {
@@ -39,6 +41,10 @@ public class ClubServiceImpl implements ClubService {
                 .map(clubMapper::clubToResponseDTO);
     }
 
+    @Override
+    public List<ClubResponseDTO> getAllClubs2() {
+        return clubRepository.findAll().stream().map(clubMapper::clubToResponseDTO).toList();
+    }
 
 
     public ClubResponseDTO updateClub(Long id, ClubRequestDTO dto) {

@@ -24,8 +24,12 @@ public class StageRequestDTO {
     @ValidDate
     private LocalDate  startDate;
 
-    @ValidDate(message = "aloo")
+
     private LocalDate endDate;
+
+    private Status status;
+
+    private StageLevel level;
 
 
     @CheckExistion(entityC = Tournament.class)

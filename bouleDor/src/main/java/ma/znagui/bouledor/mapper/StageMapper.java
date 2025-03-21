@@ -12,5 +12,6 @@ public interface StageMapper {
 
     @Mapping(target = "tournament.id", source = "tournament_id")
     Stage requestDTOtoStage(StageRequestDTO dto);
+
     StageResponseDTO stageToResponseDTO(Stage stage);
 }

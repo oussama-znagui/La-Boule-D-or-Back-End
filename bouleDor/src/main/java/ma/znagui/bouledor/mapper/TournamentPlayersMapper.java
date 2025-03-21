@@ -1,6 +1,7 @@
 package ma.znagui.bouledor.mapper;
 
 import ma.znagui.bouledor.dto.tournamentPlayers.TournamentPlayersEmbdedDTO;
+import ma.znagui.bouledor.dto.tournamentPlayers.TournamentPlayersEmbdedDTO2;
 import ma.znagui.bouledor.dto.tournamentPlayers.TournamentPlayersRequestDTO;
 import ma.znagui.bouledor.dto.tournamentPlayers.TournamentPlayersResponseDTO;
 import ma.znagui.bouledor.entity.TournamentPlayers;
@@ -13,6 +14,8 @@ public interface TournamentPlayersMapper {
 
 
     TournamentPlayersEmbdedDTO tournementPlayersToEmbdedDTO(TournamentPlayers tournamentPlayers);
+
+    TournamentPlayersEmbdedDTO2 tournementPlayersToEmbdedDTO2(TournamentPlayers tournamentPlayers);
 
     TournamentPlayersResponseDTO tournementPlayersToResponseDTO(TournamentPlayers tournamentPlayers);
 

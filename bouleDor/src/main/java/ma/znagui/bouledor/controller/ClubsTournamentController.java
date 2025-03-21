@@ -10,9 +10,13 @@ import ma.znagui.bouledor.validation.api.CheckExistion;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @RestController
 @RequestMapping("/clubs-tournament")
+@CrossOrigin("http://localhost:4200")
+
 public class ClubsTournamentController {
     private final ClubsTournamentService service;
 
@@ -25,5 +29,10 @@ public class ClubsTournamentController {
     @GetMapping("/{id}")
     public ResponseEntity<ClubsTournamentResponseDTO> getOneClubTournament(@CheckExistion(entityC = ClubsTournament.class) @PathVariable Long id){
         return ResponseEntity.ok(service.getOneClubsTournament(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ClubsTournamentResponseDTO>> getAllClubsTournaments(){
+        return ResponseEntity.ok(service.getAllClubsTournaments());
     }
 }

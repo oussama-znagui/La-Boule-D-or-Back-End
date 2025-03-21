@@ -10,7 +10,7 @@ import java.util.List;
 public interface StageService {
     StageResponseDTO createStage(StageRequestDTO dto);
     StageResponseDTO getOneStage(Long id);
-    StageResponseDTO updateStage(StageRequestDTO dto);
+    StageResponseDTO updateStage(Long id,StageRequestDTO dto);
     String deleteStage(Long id);
     List<Stage> generateTournamentStages(Tournament tournament);
 
